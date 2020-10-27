@@ -80,7 +80,7 @@ def assign_closest_center(pixel, centers):
             closest_center = index
     return closest_center, least_distance
 
-@lru_cache(maxsize=None)
+@lru_cache(maxsize=131072)
 def get_distance(pr, pg, pb, cr, cg, cb):
     '''
     An lru_cache optimized distance function. Take the RGB values for two pixels
