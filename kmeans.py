@@ -9,6 +9,7 @@ def init_centers(k, image):
     y = len(image)
     x = len(image[0])
     centers = []
+    np.random.seed(1)
     for i in range(k):
         ri = np.random.randint(0, y - 1)
         rj = np.random.randint(0, x - 1)
