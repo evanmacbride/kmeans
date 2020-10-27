@@ -59,9 +59,17 @@ def update_centers(grid, centers, image):
                     bsum += image[y][x][1]
                     gsum += image[y][x][2]
                     cell_count += 1
-        ravg = int(rsum / cell_count)
-        bavg = int(bsum / cell_count)
-        gavg = int(gsum / cell_count)
+        if (cell_count == 0):
+            print("Nothing")
+            #print(centers)
+            #sys.exit()
+            ravg = 0
+            bavg = 0
+            gavg = 0
+        else:
+            ravg = int(rsum / cell_count)
+            bavg = int(bsum / cell_count)
+            gavg = int(gsum / cell_count)
         centers[k] = np.asarray([ravg, bavg, gavg], dtype=np.uint8)
     return centers
 
