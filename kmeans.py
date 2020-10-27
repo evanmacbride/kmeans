@@ -1,6 +1,5 @@
 from functools import lru_cache
 import numpy as np
-import sys
 
 def init_centers(k, image):
     '''
@@ -17,6 +16,10 @@ def init_centers(k, image):
     return centers
 
 def run_kmeans(image, centers):
+    '''
+    Run k means until the difference between iterations converges to
+    some threshold.
+    '''
     threshold = 1
     prev_distance = 0
     cur_distance = 9999999
@@ -60,9 +63,9 @@ def update_centers(grid, centers, image):
                     gsum += image[y][x][2]
                     cell_count += 1
         if (cell_count == 0):
-            print("Nothing")
-            #print(centers)
-            #sys.exit()
+            # This situation puzzles me. If cell_count is zero, that means no
+            # pixels were assigned to this center last time. But the center
+            # itself is a pixel, so cell_count should be at least 1.
             ravg = 0
             bavg = 0
             gavg = 0

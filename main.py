@@ -4,6 +4,9 @@ import kmeans
 import sys
 
 def run_all():
+    '''
+    Driver function for default images and k values.
+    '''
     image_names = ["chickens", "shibuya", "winter"]
     for name in image_names:
         loadpath = name + ".jpg"
@@ -22,6 +25,9 @@ def run_all():
             plt.imsave(savepath, image_edit)
 
 def run_specific(filename, k):
+    '''
+    Driver function for an arbitrary filename and single k value.
+    '''
     name, extension = filename.split(".")
     extension = "." + extension
     loadpath = name + extension
@@ -43,3 +49,4 @@ elif (len(sys.argv) == 3):
     run_specific(sys.argv[1],int(sys.argv[2]))
 else:
     print("Usage: \npython3 executable_name file_name k")
+    sys.exit()
