@@ -103,7 +103,7 @@ def get_distance(pr, pg, pb, cr, cg, cb):
 def create_new_image(closest_grid, centers):
     '''
     Create an image matrix using the indices of centers we have saved in the
-    closest_grid. centers contains RGB values for the centers of color clusters.
+    closest_grid. Centers contains RGB values for the centers of color clusters.
     '''
     distance_sum = 0
     new_image = []
