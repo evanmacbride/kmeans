@@ -4,9 +4,9 @@ Group Members: Matthew Leinhauser, Evan MacBride, and Collin Meese
 
 ## kmeans
 
-An implementation of the k-means algorithm for image segmentation. This program
-will segment an image into a given number of k clusters centered on mean RGB
-values.
+This program features an implementation of the k-means algorithm for image
+segmentation. It will segment an image into a given number of k clusters
+centered on mean RGB values.
 
 ### Images
 
@@ -20,12 +20,14 @@ images will be saved in `images/output`.
 To run the program on all three input images for step 1 for k values 1, 2, 5,
 10, and 20, enter the following on the command line:
 
-```python3 main.py
+```
+python3 main.py
 ```
 
 To run specific images at a given k value, enter
 
-```python3 main.py <path_to_image>/<image_name> <K>
+```
+python3 main.py <path_to_image>/<image_name> <K>
 ```
 
 where K is an integer greater than zero. The path and image name for a good k=2
