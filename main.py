@@ -7,15 +7,14 @@ def run_all():
     '''
     Driver function for default images and k values.
     '''
-    image_names = ["chickens", "shibuya", "winter"]
+    image_names = ["apple", "cat", "leaf", "pumpkins"]
     for name in image_names:
-        loadpath = name + ".jpg"
+        loadpath = "images/input/" + name + ".jpg"
         print("Processing image " + loadpath + "...")
-        # Type of image is a numpy nparray
         image_orig = plt.imread(loadpath)
         ks = [1,2,5,10,20]
         for k in ks:
-            savepath = name + "-k" + str(k) + ".jpg"
+            savepath = "images/output/" + name + "-k" + str(k) + ".jpg"
             print("Initializing k=" + str(k) + " centers...")
             centers = kmeans.init_centers(k, image_orig)
             print("Running k means...")
@@ -24,17 +23,16 @@ def run_all():
             image_edit = kmeans.create_new_image(grid, centers)
             plt.imsave(savepath, image_edit)
 
-def run_specific(filename, k):
+def run_specific(path, k):
     '''
     Driver function for an arbitrary filename and single k value.
     '''
+    filename = path.split("/")[-1]
     name, extension = filename.split(".")
     extension = "." + extension
-    loadpath = name + extension
-    print("Processing image " + loadpath + "...")
-    # Type of image is a numpy nparray
-    image_orig = plt.imread(loadpath)
-    savepath = name + "-k" + str(k) + extension
+    print("Processing image " + path + "...")
+    image_orig = plt.imread(path)
+    savepath = "images/output/" + name + "-k" + str(k) + extension
     print("Initializing k=" + str(k) + " centers...")
     centers = kmeans.init_centers(k, image_orig)
     print("Running k means...")

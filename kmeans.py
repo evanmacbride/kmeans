@@ -23,7 +23,10 @@ def run_kmeans(image, centers):
     threshold = 1
     prev_distance = 0
     cur_distance = 9999999
+    i = 1
     while(abs(cur_distance - prev_distance) > threshold):
+        print("k means iteration " + str(i))
+        i += 1
         prev_distance = cur_distance
         grid, cur_distance = update_grid(image, centers)
         centers = update_centers(grid, centers, image)
@@ -92,7 +95,7 @@ def assign_closest_center(pixel, centers):
             closest_center = index
     return closest_center, least_distance
 
-@lru_cache(maxsize=131072)
+@lru_cache(maxsize=262144)
 def get_distance(pr, pg, pb, cr, cg, cb):
     '''
     An lru_cache optimized distance function. Take the RGB values for two pixels
