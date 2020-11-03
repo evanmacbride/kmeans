@@ -7,7 +7,7 @@ def run_all():
     '''
     Driver function for default images and k values.
     '''
-    image_names = ["apple", "cat", "leaf", "pumpkins"]
+    image_names = ["apple", "cat", "leaf"]
     for name in image_names:
         loadpath = "images/input/" + name + ".jpg"
         print("Processing image " + loadpath + "...")
@@ -46,5 +46,5 @@ if (len(sys.argv) == 1):
 elif (len(sys.argv) == 3):
     run_specific(sys.argv[1],int(sys.argv[2]))
 else:
-    print("Usage: \npython3 executable_name file_name k")
+    print("Usage: \npython3 main.py image_filename k")
     sys.exit()

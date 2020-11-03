@@ -66,9 +66,6 @@ def update_centers(grid, centers, image):
                     gsum += image[y][x][2]
                     cell_count += 1
         if (cell_count == 0):
-            # This situation puzzles me. If cell_count is zero, that means no
-            # pixels were assigned to this center last time. When does
-            # that arise?
             ravg = 0
             bavg = 0
             gavg = 0
